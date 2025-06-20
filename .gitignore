@@ -1,0 +1,29 @@
+# Pasta do Visual Studio
+.vs/
+
+# Pastas de build
+bin/
+obj/
+
+# Configurações locais
+*.user
+*.suo
+
+# Configurações do VSCode
+.vscode/
+
+# Arquivos temporários
+*.log
+*.tmp
+*.bak
+
+# Pacotes NuGet
+packages/
+*.nupkg
+
+# Resultados de publicação
+publish/
+
+#SQLite
+*.db-shm
+*.db-wal
