@@ -28,6 +28,7 @@ namespace ToDo.Application.UseCases
 
             return new TarefaDto
             {
+                Id = tarefa.Id,
                 Titulo = tarefa.Titulo,
                 Descricao = tarefa.Descricao,
                 Status = tarefa.Status,
