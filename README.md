@@ -1,6 +1,13 @@
 # ToDo_Mirante - API
+>Gerenciamento de criação, alteração, exclusão e listagem de tarefas
 
-Gerenciamento de criação, alteração, exclusão e listagem de tarefas
+### Tecnologias
+- C#
+- API Rest
+- Clean Architeture
+- Padrão Repository
+- Banco de Dados SQLite (O banco está localizado no projeto API)
+- xUnit para testes unitários
 
 ## Como executar
 
@@ -15,7 +22,13 @@ git clone https://github.com/IgorSilvaRosa/ToDo_Mirante.git
 cd ToDo_Mirante
 
 dotnet restore
-dotnet run --project ToDo.API
+dotnet run --project ToDo.API --urls=https://localhost:7073
+```
+
+### Executar Testes
+
+```bash
+dotnet test
 ```
 
 Para acessa via Swagger
@@ -131,3 +144,6 @@ Exemplo
   }
 ]
 
+
+## Autor
+Feito por [Igor Silva Rosa](https://github.com/IgorSilvaRosa)
