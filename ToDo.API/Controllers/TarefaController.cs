@@ -17,11 +17,14 @@ namespace ToDo.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetTarefas()
+        public async Task<IActionResult> GetTarefas(int pageNumer = 1, int pageSize = 5)
         {
             var listTarefas = await _tarefaService.GetAll();
 
-            return Ok(listTarefas);
+          var resultado =  listTarefas.Skip((pageNumer - 1) * pageSize)
+                .Take(pageSize);
+
+            return Ok(resultado);
         }
 
         [HttpPost]
@@ -32,6 +35,9 @@ namespace ToDo.API.Controllers
 
             if (string.IsNullOrEmpty(dto.Titulo))
                 return BadRequest("Título obrigatório");
+
+            if (dto.DataVencimento < DateTime.Now)
+                return BadRequest("Favor não inserir data retroativa");
 
 
             var tarefa = await _tarefaService.AddAsync(dto);
@@ -89,7 +95,8 @@ namespace ToDo.API.Controllers
         [HttpGet("filtro")]
         public async Task<IActionResult> FiltrarTarefas([FromQuery] TarefaFiltroDto filtro)
         {
-            var tarefas = await _tarefaService.GetByFilterAsync(filtro);
+            var tarefas = await _tarefaService.GetByFilterAsync(filtro);           
+
             return Ok(tarefas);
         }
 
